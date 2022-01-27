@@ -250,6 +250,9 @@ const MODE_NORMAL = 1, MODE_ENDLESS = 2, MODE_PRACTICE = 3;
     let right=1;
     let last=0;
     function refreshGameLayer(box, loop, offset) {
+        if(box.children.length%2==0)
+            right=1-right;
+        
         if(right == 1)
             last=Math.floor(Math.random()*1000)%2+2;
         else
@@ -478,7 +481,7 @@ const MODE_NORMAL = 1, MODE_ENDLESS = 2, MODE_PRACTICE = 3;
     function initSetting() {
         $("#username").val(cookie("username") ? cookie("username") : "");
         $("#message").val(cookie("message") ? cookie("message") : "");
-        $("title").text(cookie("title") ? cookie("title") : "吃掉小鹿乃");
+        $("title").text(cookie("title") ? cookie("title") : "吃掉小交互");
         let keyboard = cookie('keyboard');
         if (keyboard) {
             keyboard = keyboard.toLowerCase();
